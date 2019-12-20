@@ -1,0 +1,152 @@
+﻿@model Models.EF.HopDong
+@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--
+  Invoice template by invoicebus.com
+  To customize this template consider following this guide https://invoicebus.com/how-to-create-invoice-template/
+  This template is under Invoicebus Template License, see https://invoicebus.com/templates/license/
+-->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Chi tiết hợp đồng</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Invoicebus Invoice Template">
+    <meta name="author" content="Invoicebus">
+    <meta name="template-hash" content="baadb45704803c2d1a1ac3e569b757d5">
+    <link href="~/Public/Bill/css/template.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container" style="width:960px">
+        <section id="memo">
+            <div class="logo">
+                <img src="~/Public/Client/images/logohn.png" style="width:381px" />
+            </div>
+
+            <div class="company-info">
+                <div>Đồ gỗ Hải Nam</div>
+                <br />
+
+                <span>Xóm Chợ, thôn Đinh Xuyên - Xã Hòa Nam - Huyện ứng Hoà - Hà Nội</span>
+                <span></span>
+                <br />
+
+                <span>0984752196</span>
+                <span>cskh@hainam.com</span>
+            </div>
+        </section>
+        <section id="invoice-title-number">
+            <span id="title">Hợp đồng</span>
+            <span id="number">@Model.Id</span>
+        </section>
+
+        <div class="clearfix"></div>
+        <div>
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.NoiDung))
+        </div>
+        <div class="clearfix"></div>
+
+        <section id="invoice-info" style="width: 50%;">
+            <div>
+                <span>Mã nhân viên</span>: <span>@Model.NguoiDung.Id</span> <br />
+                <span>Nhân viên</span>: <span>@Model.NguoiDung.HoTen</span><br />
+                <span>Ngày bắt đầu</span>: <span>@Model.NgayBatDau</span><br />
+                <span>Ngày kết thúc</span>: <span>@Model.NgayKetThuc</span><br />
+            </div>
+        </section>
+
+        <section id="client-info">
+            <section id="invoice-info">
+                <div>
+                    <span>Tên khách hàng: </span><span>@Model.KhachHang.TenKhachHang</span><br />
+                    <span>Điện thoại</span>: <span>@Model.KhachHang.DienThoai</span><br />
+                    <span>Email</span>: <span>@Model.KhachHang.Email</span><br />
+                    <span>Địa chỉ</span>: <span>@Model.KhachHang.DiaChi</span><br />
+                </div>
+            </section>
+        </section>
+
+        <div class="clearfix"></div>
+
+        <section id="items">
+
+            <table cellpadding="0" cellspacing="0">
+                <tr>
+                    <th>Mã</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Số lượng</th>
+                    <th>Đơn giá</th>
+                    <th>Thành tiền</th>
+                </tr>
+                @foreach (var item in Model.ChiTietHopDongs)
+                {
+                    <tr>
+                        <td>@item.MaSanPham</td>
+                        <td>@item.SanPham.TenSanPham</td>
+                        <td>@item.SoLuong</td>
+                        <td>@item.SanPham.DonGia</td>
+                        <td>@(item.SoLuong * item.SanPham.DonGia)</td>
+                    </tr>
+                }
+            </table>
+
+        </section>
+
+        <section id="sums">
+
+            <table cellpadding="0" cellspacing="0">
+                <tr data-hide-on-quote="true">
+                    <th>Tổng tiền</th>
+                    <td>
+                        @if (Model.ThanhTien != null)
+                        {
+                            <span>@Model.ThanhTien.Value.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN"))</span>
+                        }
+                    </td>
+                </tr>
+            </table>
+        <div class="clearfix"></div>
+
+    </section>
+
+    <div class="clearfix"></div>
+    @*<section id="invoice-info">
+        <div>
+            <span>Ngày đặt cọc</span> <span>@Model.NgayDatCoc</span>
+        </div>
+        <div>
+            <span>Ngày thanh toán</span> <span>@Model.NgayThanhToan</span>
+        </div>
+        <br />
+        <div>
+            <span>Ngày giao hàng</span> <span>@Model.NgayGiaoHang</span>
+        </div>
+        <div>
+            <span>Đã thanh toán</span> <span>@Model.DaThanhToan</span>
+        </div>
+    </section>*@
+
+    <section id="terms">
+        <div class="notes"></div>
+        <br />
+        <div class="payment-info">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </section>
+    <div class="clearfix"></div>
+    <div class="thank-you">Thanks You</div>
+    <div class="clearfix"></div>
+</div>
+</body>
+</html>

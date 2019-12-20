@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Models.EF.HopDong>
+
+@{
+    ViewBag.Title = "Danh sách hợp đồng";
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="box">
+        <div class="box-header">
+            <h3 class="box-title">Danh sách hợp đồng</h3>
+            <h3>@Html.ActionLink("Tạo mới", "Create")</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            <b class="control-label col-md-2" width="40">Mã</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">Khách hàng</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">Nhân viên</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">Thành tiền</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">KH xác nhận</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">Tiền đặt cọc</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">Bắt đầu</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">Kết thúc</b>
+                        </th>
+                        <th>
+                            <b class="control-label col-md-2">Tình trạng</b>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.KhachHang.TaiKhoan)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NguoiDung.TaiKhoan)
+                            </td>
+                            <td>
+                                @if (item.ThanhTien != null)
+                                {
+                                    <span>@item.ThanhTien.Value.ToString("#,###", System.Globalization.CultureInfo.GetCultureInfo("vi-VN")) VND</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.KhachHangXacNhan == true)
+                                {
+                                    <span class="text-success">Đã xác nhận</span>
+                                }else
+                                {
+                                    <span class="text-danger">Chưa xác nhận</span>
+                                }
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TienDatCoc)
+                            </td>
+                            <td>
+                                @if (item.NgayBatDau != null)
+                                {
+                                    <span>@item.NgayBatDau.Value.ToShortDateString()</span>
+                                }
+                            </td>
+                            <td>
+                                @if (item.NgayKetThuc != null)
+                                {
+                                    <span>@item.NgayKetThuc.Value.ToShortDateString()</span>
+                                }
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TinhTrang)
+                            </td>
+                            <td>
+                                @if (item.KhachHangXacNhan != null && item.TinhTrang != "Hoàn thành")
+                                {
+                                    <span>@Html.ActionLink("Giao hàng", "TaoHoaDon", new { id = item.Id })  |</span>
+                                }
+                                @if (item.KhachHangXacNhan != null)
+                                {
+                                    <span>@Html.ActionLink("Danh sách giao hàng", "ListShip", new { id = item.Id })  |</span>
+                                }
+                                
+                                @Html.ActionLink("Xuất hợp đồng", "Details", new { id = item.Id }) 
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+@section script{
+    <script>
+        $(function () {
+            $('#example1').DataTable()
+            $('#example2').DataTable({
+                'paging': true,
+                'lengthChange': false,
+                'searching': false,
+                'ordering': true,
+                'info': true,
+                'autoWidth': false
+            })
+        })
+    </script>
+}

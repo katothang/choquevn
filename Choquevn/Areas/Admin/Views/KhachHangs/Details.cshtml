@@ -1,0 +1,84 @@
+﻿@model Models.EF.KhachHang
+
+@{
+    ViewBag.Title = "Chi tiết khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Chi tiết</h3>
+        </div>
+        <div class="box-header with-border">
+            <h4>Khách hàng</h4>
+        </div>
+        <br>
+        <div>
+            
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TaiKhoan)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TaiKhoan)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MatKhau)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MatKhau)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TenKhachHang)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TenKhachHang)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DiaChi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DiaChi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DienThoai)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DienThoai)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NgaySinh)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgaySinh)
+                </dd>
+
+            </dl>
+        </div>
+    </div>
+    <div class="box-footer">
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Danh sách", "Index")
+    </div>
+
+</section>

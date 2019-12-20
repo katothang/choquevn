@@ -1,0 +1,244 @@
+﻿@model Models.EF.HopDong
+
+@{
+    ViewBag.Title = "Tạo mới hợp đồng";
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+    var loginAccount = Session["LoginAccount"] as Models.EF.NguoiDung;
+}
+
+<section class="content container-fluid">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Tạo mới hợp đồng</h3>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <br>
+                <div class="row">
+                    <div class="col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <b class="control-label col-md-4"> Mã nhân viên</b>
+                            <div class="col-md-8">
+                                <input type="hidden" name="MaNhanVien" value="@loginAccount.Id"/>
+                                <input type="text" disabled="disabled" name="ltm" value="@loginAccount.HoTen"  class="form-control"/>
+                                @Html.ValidationMessageFor(model => model.MaNhanVien, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <b class="control-label col-md-4"> Mã khách hàng(<a href="/Admin/KhachHangs/Create">Tạo mới</a>)</b>
+                            <div class="col-md-8">
+                                @Html.DropDownList("MaKhachHang", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.MaKhachHang, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <b class="control-label col-md-4"> Ngày bắt đầu</b>
+                            <div class="col-md-8">
+                                <input type="date" name="NgayBatDau" value="" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.NgayBatDau, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <b class="control-label col-md-4"> Ngày kết thúc</b>
+                            <div class="col-md-8">
+                                <input type="date" name="NgayKetThuc" value="" class="form-control" />
+                                @Html.ValidationMessageFor(model => model.NgayKetThuc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <b class="control-label col-md-4"> Tiền đặt cọc</b>
+                            <div class="col-md-8">
+                                @Html.EditorFor(model => model.TienDatCoc, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TienDatCoc, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+
+                <div class="form-group">
+                    <b class="control-label col-md-1"> Nội dung</b>
+                    <div class="col-md-11">
+                        <textarea id="NoiDung" name="NoiDung"></textarea>
+                        @Html.ValidationMessageFor(model => model.NoiDung, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <hr />
+                <br />
+                <div class="row">
+                    <div class="col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <b class="control-label col-md-4"> Chọn sản phẩm</b>
+                            <div class="col-md-8">
+                                <input class="form-control autocomplete" placeholder="Enter A" id="productId"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <b class="control-label col-md-4"> Số lượng</b>
+                            <div class="col-md-8">
+                                <input type="number" name="name" value="" id="productQty" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xs-6">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary" id="btnAddProduct">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+
+                <hr />
+                <br />
+
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Tên danh mục
+                            </th>
+                            <th>
+                                Tên nhà cung cấp
+                            </th>
+                            <th>
+                                Tên sản phẩm
+                            </th>
+                            <th>
+                                Mô tả
+                            </th>
+                            <th>
+                                Đơn giá
+                            </th>
+                            <th>
+                                Đơn vị
+                            </th>
+                            <th>
+                                Hình ảnh
+                            </th>
+                            <th>
+                                Số lượng
+                            </th>
+                            <th>
+
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="loadMore">
+                        @*<tr>
+                            <td>
+                                data.DanhMucSanPham.TenDanhMuc)
+                            </td>
+                            <td>
+                                data.NhaCungCap.TenNhaCungCap)
+                            </td>
+
+                            <td>
+                                data.TenSanPham)
+                            </td>
+                            <td>
+                                data.MoTa)
+                            </td>
+                            <td>
+                                data.DonGia)
+                            </td>
+                            <td>
+                                data.DonVi)
+                            </td>
+                            <td>
+                                <img src="~/Public/Upload/Product/data.HinhAnh)" width="70px" height="70px" />
+                            </td>
+                        </tr>*@
+                    </tbody>
+                </table>
+
+
+                <hr />
+                <br />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Tạo mới" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+
+            <hr />
+            <br/>
+            <div class="box-footer">
+                @Html.ActionLink("Danh sách", "Index")
+            </div>
+        }
+    </div>
+</section>
+@section script{
+    <script>
+        CKEDITOR.replace('NoiDung');
+        var ltmApp = {};
+        $(function () {
+            var availableTags = [
+              "ActionScript", "AppleScript", "Asp", "BASIC", "C", "C++",
+              "Clojure", "COBOL", "ColdFusion", "Erlang", "Fortran",
+              "Groovy", "Haskell", "Java", "JavaScript", "Lisp", "Perl",
+              "PHP", "Python", "Ruby", "Scala", "Scheme"
+            ];
+            $.get("/Admin/SanPhams/ProductAPI", function (data) {
+                console.log("oki");
+                $(".autocomplete").autocomplete({
+                    source: data
+                });
+            })
+        });
+
+        ltmApp.count = 0;
+
+    </script>
+    <script>
+        $("#btnAddProduct").click(function () {
+            var productId = $("#productId").val().split("-")[1];
+            var productQty = $("#productQty").val();
+            console.log(productId);
+            console.log(productQty);
+            $.get("/Admin/SanPhams/ProductDetailAPI/" + productId, function (data) {
+                console.log("load oki");
+                console.log("data");
+                $("#loadMore").append(
+                    "<tr id='product_"+ltmApp.count +"'><td>" +
+                        data.TenDanhMuc  +
+                    "</td><td>" +
+                        data.TenNhaCungCap +
+                    "</td><td>" +
+                        data.TenSanPham +
+                    "</td><td>" +
+                        data.MoTa +
+                    "</td><td>" +
+                        data.DonGia +
+                    "</td><td>" +
+                        data.DonVi +
+                    "</td><td>" +
+                        "<img src='/Public/Upload/Product/"+ data.HinhAnh +"'" + " width='70px' height='70px' />" +
+                    "</td><td>" +
+                        "<input type='number' name='ChiTietHopDongs[" + ltmApp.count + "].SoLuong' value='" + productQty + "'/>" +
+                        "<input type='hidden' name='ChiTietHopDongs[" + ltmApp.count + "].MaSanPham' value='" + productId + "'/>" +
+                    "</td><td>" +
+                        "<a href='#' onclick='removeProduct("+ ltmApp.count +")'>Xóa</a>" +
+                    "</td></tr>");
+                ltmApp.count++;
+            })
+        });
+    </script>
+    <script>
+        function removeProduct(id) {
+            $("#product_" + id).remove();
+        }
+    </script>
+}

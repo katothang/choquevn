@@ -1,0 +1,298 @@
+﻿<!DOCTYPE html>
+@{ var categorys = ViewData["Menu"] as List<Models.EF.DanhMucSanPham>; }
+@{
+    var session = (CuaHangDoGo.Common.UserLogin)Session[CuaHangDoGo.Common.CommonConstants.CUSTOMER_SESSION];
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="vi-vn" lang="vi-vn">
+
+<!-- Mirrored from choquevn.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Dec 2019 02:50:07 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <link href="https://plus.google.com/u/0/[B]111876916762424100514[/B]" rel="author">
+    <meta name="google-site-verification" content="UoFvPf1-5pyH2B7ZaRLuTwhryGtOopyaxnOsPt7xlFc" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="noodp, noydir" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="geo.placename" content="Place Name" />
+    <meta content="chợ quê, chợ quê việt nam, chợ việt nam, chợ miền quê" name="geo.region" />
+    <meta name="geo.position" content="latitude; longitude" />
+    <meta name="DC.Type" content="chợ quê, chợ quê việt nam, chợ miền quê, chợ miền quê việt nam, chợ thôn quên" />
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/theme/images/favicon.ico" />
+    <meta property="og:latitude" content="21.0303624" />
+    <meta property="og:longitude" content="105.8441376" />
+    <meta property="og:title" content="Chợ Quê Việt Nam" />
+    <meta property="og:url" content="index.html" />
+    <meta property="og:site_name" content="choquevn.com" />
+    <meta property="og:description" content="Chợ Quê Việt Nam - 0984.845.724 chuyên đồ nông sản quê như: bột tạo màu tự nhiên, đặc sản khắp các vùng miền quê mạng đậm chất và bản sắc dân tộc quê hương Việt Nam." />
+    <meta name="msvalidate.01" content="8776AA4776F25490E96ECCE7495A3553" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Chợ Quê Việt Nam chuyên bán đồ nông sản quê</title>
+    <meta name="keywords" content="chợ quê, chợ quê việt nam, chợ quê, shop chợ quê" />
+    <meta name="description" content="Chợ Quê Việt Nam - 0984.845.724 chuyên đồ nông sản quê như: bột tạo màu tự nhiên, đặc sản khắp các vùng miền quê mạng đậm chất và bản sắc dân tộc quê hương Việt Nam." />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/preset4.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/camera.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/slick.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/jquery.mmenu.all.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/common.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/theme/font-awesome.min.css" />
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            '../connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '275765256227780');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=275765256227780&amp;ev=PageView&amp;noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+    <div id="wrapper">
+
+        <div id="header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="logo pull-left">
+                        <a href="index.html" title="chợ quê việt nam">
+                            <img src="~/Content/theme/images/logo.png" alt="chợ quê việt nam" />
+                        </a>
+                    </div>
+                    <!-- end logo -->
+                    <div class="pull-right text-center">
+                        <div class="top-right">
+                            <p><b></b><i class="fa fa-map-marker" style="font-size:15pt"></i>Danh Sách Nhóm Bài Tập Lớn Môn ASP</p></b>
+                            <p><i class="fa fa-map-marker" style="font-size:15pt"></i>Nguyễn Văn Nguyên</p>
+                            <p><i class="fa fa-map-marker" style="font-size:15pt"></i>Nguyễn Văn Thắng</p>
+                            <p><i class="fa fa-map-marker" style="font-size:15pt"></i>PHOMMASONE Daophet</p>
+                            <p><i class="fa fa-map-marker" style="font-size:15pt"></i>BOUNPACERT Bouakeo</p>
+
+                        </div>
+                        <!-- end top-right -->
+                        <div style="clear:both"></div>
+                        <div class="bot-right">
+                            <p><i class="fa fa-phone"></i>Thầy Hướng Dẫn</span></p>
+                            <p><i class="fa fa-phone"></i>Ths. Đỗ Ngọc Sơn</span></p>
+                        </div>
+                        <!-- end top-right -->
+                    </div>
+
+                    <div class="tm-search pull-left">
+                        <a href="index.html" title="Chợ quê chợ của Việt Nam"><img class="img-responsive" style="position:relative;top:-9px" alt="Chợ quê chợ của Việt Nam" src="~/Content/theme/images/banner.png" /></a>
+                    </div>
+                    <!-- end tm-search -->
+                </div>
+            </div>
+            <!-- end header-top -->
+
+            <div class="header-bot">
+                <div class="container">
+                    <div class="tm-menu">
+                        <a href="#menu-mobile" class="menu-mobile"><span>Menu</span></a>
+                        <ul class="menu">
+                            <li><a href="/" class="active actived">Trang chủ</a></li>
+                            @foreach (var item in categorys)
+                            {
+                                <li><a href="/the-loai/@item.TenDanhMuc-@item.Id">@item.TenDanhMuc</a></li>
+                            }
+                           
+                            <!--<li>
+
+            <ul>
+                <li><a href="#">Giới thiệu 1</a></li>
+                <li><a href="#">Giới thiệu 1</a></li>
+                <li><a href="#">Giới thiệu 1</a></li>
+                <li><a href="#">Giới thiệu 1</a></li>
+            </ul>
+        </li>-->
+
+                        </ul>
+                    </div>
+                    <!-- end tm-menu -->
+                </div>
+            </div>
+            <!-- end header-bot -->
+        </div> <!-- end header -->
+</head>
+
+
+<div id="content">
+    <div class="container">
+        <div class="content-top">
+            @*@RenderPage("_Search.cshtml")*@
+            <div class="content-left">
+                @RenderBody()
+            </div>
+            <div class="content-right">
+                <p>
+                    <center>
+                        <a href="/Cart/" class="btn btn-info" style="background-color: #A1887F;">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng
+                        </a>
+                    </center>
+                </p>
+                @if (session == null)
+                {
+
+                    <p style="margin:5px">Bạn chưa có tài khoản ?<br /> Vui lòng nhấn vào <a href="/tai-khoan/dang-ky">đây</a> để đăng ký</p>
+                    <center><button class="btn btn-success" onclick="location.href = '/tai-khoan/dang-nhap'">Đăng nhập</button></center>
+                    <br />
+                }
+                else
+                {
+                    @RenderPage("_Customer.cshtml")
+                }
+                <br /><br />
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="footer">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-xs-6">
+                    <h3 class="tm-title">Liên kết hữu ích</h3>
+                    <ul class="list-hd">
+
+                        <li><a href="http://choquevn.com/bot-la-cam-tim-nguyen-chat-tu-nhien-dam-bao-vsattp-ban-tai-cho-que-3513" title="bột lá cẩm">Bột lá cẩm</a></li>
+                        <li><a href="http://choquevn.com/pho-tai-la-gi-3465" title="phổ tai">Phổ tai rong biển</a></li>
+                        <li><a href="http://choquevn.com/quy-trinh-lam-bot-gac-don-gian-dam-bao-chung-nhan-vsattp-4061" title="Bột gấc">Bột gấc khô nguyên chất</a></li>
+                        <li><a href="http://choquevn.com/cach-lam-tra-cu-sen-tai-nha-don-gian-3445" title="Trà củ sen">Trà củ sen</a></li>
+                        <li><a href="http://choquevn.com/bot-la-nep-bot-la-dua-co-tac-dung-gi-3496" title="Lá nếp">Lá nếp</a></li>
+                        <li><a href="http://choquevn.com/hat-danh-danh-bot-danh-danh-tao-mau-vang-cho-thuc-pham-an-toan-4101" title="bột dành dành">Bột dành dành</a></li>
+                        <li><a href="http://choquevn.com/ban-bot-la-khuc-nguyen-chat-100-dam-bao-vsattp-4202" title="bột lá khúc">bột lá khúc</a></li>
+                        <li><a href="http://dichvucuacay.com/" title="dịch vụ cắt cây">dịch vụ cắt cây</a></li>
+                        <li><a href="http://mauthucphamtunhien.com/san-pham/bot-la-nep-bot-la-dua-nguyen-chat-tu-nhien.html" title="bột lá nếp">bột lá nếp</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-5 col-sm-6 col-xs-6">
+                    <div class="gallery">
+                        <h3 class="tm-title">Hình ảnh về sản phẩm Chợ Quê</h3>
+                        <ul>
+                            <li>
+                                <a href="http://choquevn.com/san-pham-moi-bot-la-cam-3513" title="bột l&#225; cẩm" class="img">
+                                    <img src="http://choquevn.com/upload/files/slide/636130474016109775.png" alt="http://choquevn.com/upload/files/slide/636130474016109775.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://choquevn.com/ban-bot-la-gai-nguyen-chat-100-tu-nhien-4172" title="Bột l&#225; gai" class="img">
+                                    <img src="http://choquevn.com/upload/files/bot-la-gai/636471348212132410.png" alt="http://choquevn.com/upload/files/bot-la-gai/636471348212132410.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://choquevn.com/hanh-nhan-uc-my/-2198" title="Hạnh nh&#226;n &#250;c" class="img">
+                                    <img src="http://choquevn.com/upload/files/slide/636130477331769420.png" alt="http://choquevn.com/upload/files/slide/636130477331769420.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://choquevn.com/bot-gac-tuoi-nguyen-chat-tai-cho-que-4001" title="Bột gấc" class="img">
+                                    <img src="http://choquevn.com/upload/files/slide/636130482092721731.png" alt="http://choquevn.com/upload/files/slide/636130482092721731.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://choquevn.com/tac-dung-chua-benh-huu-hieu-than-ky-cua-tinh-bot-nghe-3843" title="Tinh bột nghệ t&#225;c dụng thần kỳ" class="img">
+                                    <img src="http://choquevn.com/upload/files/slide/636130478628773605.png" alt="http://choquevn.com/upload/files/slide/636130478628773605.png" />
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://choquevn.com/ban-bot-la-khuc-nguyen-chat-100-dam-bao-vsattp-4202" title="Bột l&#225; kh&#250;c" class="img">
+                                    <img src="http://choquevn.com/upload/files/slide/636577305878554146.png" alt="http://choquevn.com/upload/files/slide/636577305878554146.png" />
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <h3 class="tm-title">Công ty Cổ phần Chợ Quê Việt Nam</h3>
+                    <p class="ct">
+                        <span>ĐKKD 0107852078 sở KHĐT Tp. Hà Nội </span>
+                        <span>Hà Nội: 2/145 Quan Nhân - Q.Thanh Xuân - Tp.Hà Nội</span>
+                        <span>Tp.HCM: 243/32/7 Hoàng Diệu - Đường 41 - P.4 Quận 4 - Tp.HCM</span>
+                        <span>Điện thoại: 0984.845.724</span>
+                        <span>Di động 1: 0915.731.468</span>
+                        <span>Di động 2: 0963.274.216</span>
+                        <span>Email: tuvanchoque@gmail.com</span>
+                        <span>Sky: tuvanchoque</span>
+
+                        <span>Liên hệ: <a style="color: white" href="http://choquevn.com/lien-he-1362">Thông tin liên hệ</span>
+                    </p>
+                    <a href="http://www.dmca.com/Protection/Status.aspx?ID=62f0e941-cc51-4e22-ba79-973a05f8818e" title="DMCA.com Protection Status" class="dmca-badge">
+                        <img src="http://images.dmca.com/Badges/DMCA_logo-grn-btn150w.png?ID=62f0e941-cc51-4e22-ba79-973a05f8818e" alt="DMCA.com Protection Status">
+                    </a>
+                    <script src="http://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end footer-top -->
+    <div class="footer-bot">
+        <div class="container">
+            <p class="pull-left"><a href="http://choquevn.com/chinh-sach-quy-dinh-chung-4205" target="_blank">Chính sách quy định</a> - Bản quyền thuộc về <a title="chợ quê" href="http://choquevn.com/">chợ quê việt nam</a> © 2016 - hệ thống đang trong thời gian thử nghiệm</p>
+            <p class="pull-right">Phát triển bởi <a href="http://choquevn.com/" target="_blank">choquevn.com</a> - Liên kết: <a href="http://maihienxeptienphat.com/" target="_blank">Mái xếp</a></p>
+        </div>
+    </div>
+    <!-- end footer-bot -->
+</div>
+<!-- end footer -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-63174811-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+<!--Start of Tawk.to Script-->
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/57144053de390fbd231da4e0/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<div class="cls-call-action" style="display: none; z-index: 1000!important;">
+    <a style="padding: 10px" title="hỗ trợ" data-animate="fadeInDown" href="http://zalo.me/0915434189" target="_blank">
+        <img width="45" alt="hỗ trợ trực tuyến zalo" src="http://choquevn.com/themes/images/zaloo.png">
+    </a>
+</div>
+
+        </div>
+
+<script type="text/javascript" src="http://choquevn.com/scripts/choquehn-v2/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://choquevn.com/scripts/choquehn-v2/smoothscroll.js"></script>
+<script type="text/javascript" src="http://choquevn.com/scripts/choquehn-v2/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="http://choquevn.com/scripts/choquehn-v2/camera.js"></script>
+<script type="text/javascript" src="http://choquevn.com/scripts/choquehn-v2/slick.min.js"></script>
+<script type="text/javascript" src="http://choquevn.com/scripts/choquehn-v2/jquery.mmenu.min.all.js"></script>
+<script type="text/javascript" src="http://choquevn.com/scripts/choquehn-v2/common.js"></script>
+<!-- The Modal -->
+<!-- Mirrored from choquevn.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 19 Dec 2019 02:51:35 GMT -->
+</html>

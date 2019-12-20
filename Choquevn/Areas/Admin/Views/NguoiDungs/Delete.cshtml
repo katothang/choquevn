@@ -1,0 +1,93 @@
+﻿@model Models.EF.NguoiDung
+
+@{
+    ViewBag.Title = "Xóa người dùng";
+    Layout = "~/Areas/Admin/Views/Shared/AdminMaster.cshtml";
+}
+
+<section class="content container-fluid">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Bạn có thực sự muốn xóa</h3>
+        </div>
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.LoaiTaiKhoan.TenLoai)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.LoaiTaiKhoan.TenLoai)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TaiKhoan)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TaiKhoan)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.MatKhau)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.MatKhau)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.HoTen)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.HoTen)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.GioiTinh)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.GioiTinh)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NgaySinh)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NgaySinh)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DiaChi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DiaChi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Xóa" class="btn btn-default" /> |
+                    @Html.ActionLink("Danh sách", "Index")
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

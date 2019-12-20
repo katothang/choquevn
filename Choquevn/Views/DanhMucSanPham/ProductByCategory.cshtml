@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model IEnumerable<Models.EF.SanPham>
+<p class="box-text-button-title">Sản phẩm theo thể loại</p>
+<div style="width: 700px; height: 1px; background: #2196F3; margin-left: 5px;"></div>
+<div class="box-pro-home">
+    @foreach (var item in Model)
+    {
+        <div class="item-pro-home">
+            <div class="box-image-pro-home">
+                <div class="hover13 column">
+                    <div>
+                        <figure>
+                            <img src="~/Public/Upload/Product/@item.HinhAnh" id="image" />
+                   
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <p><a href="/chi-tiet-san-pham/@item.Id">@item.TenSanPham</a></p>
+            <div class="box-info-item">
+                <p><i class="fas fa-dollar-sign"></i> Đơn giá: @item.DonGia</p>
+                <p><i class="fas fa-anchor"></i> Đơn vị: @item.DonVi</p>
+                <p><i class="far fa-list-alt"></i> Danh mục: @item.DanhMucSanPham.TenDanhMuc</p>
+                <div class="box-text-button">
+                    <a href="/chi-tiet-san-pham/@item.Id" class="btn btn-primary btn-md">Đặt hàng</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
